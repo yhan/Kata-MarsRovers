@@ -1,9 +1,8 @@
-﻿namespace KataMarsRovers
+﻿using NFluent;
+using NUnit.Framework;
+
+namespace KataMarsRovers.Tests
 {
-    using NFluent;
-
-    using NUnit.Framework;
-
     [TestFixture]
     public class MarsRoverShould
     {
