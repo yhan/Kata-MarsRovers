@@ -9,7 +9,7 @@ namespace KataMarsRovers
         public Orientation North { get; }
         public Orientation West { get; }
         public Orientation South { get; }
-        public Orientation Est { get; }
+        public Orientation East { get; }
         private readonly IDictionary<string, Orientation> _map;
 
         public Compass()
@@ -17,9 +17,9 @@ namespace KataMarsRovers
             North = new Orientation("N");
             West = new Orientation("W");
             South = new Orientation("S");
-            Est =  new Orientation("E");
-            _map = new[] {North, West, South, Est}.ToDictionary(x => x.Name, x => x);
-            Link(North, West, South, Est);
+            East =  new Orientation("E");
+            _map = new[] {North, West, South, East}.ToDictionary(x => x.Name, x => x);
+            Link(North, West, South, East);
         }
 
         public Compass StartWith(string start)

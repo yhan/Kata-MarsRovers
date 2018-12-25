@@ -57,6 +57,26 @@ namespace KataMarsRovers.Tests
         }
 
         [Test]
+        public void Acceptance_test_When_can_always_go_forward_which_means_no_obstacle()
+        {
+            var rover = new Rover("5 5 1 2 N");
+            rover.Move("LMLMLMLMM");
+
+            string positionAndOrientation = rover.GetPositionAndOrientation();
+            Check.That(positionAndOrientation).IsEqualTo("1 3 N");
+        }
+
+        [Test]
+        public void Acceptance_test_When_can_always_go_forward_which_means_no_obstacle_case_2()
+        {
+            var rover = new Rover("5 5 3 3 E");
+            rover.Move("MMRMMRMRRM");
+
+            string positionAndOrientation = rover.GetPositionAndOrientation();
+            Check.That(positionAndOrientation).IsEqualTo("5 1 E");
+        }
+
+        [Test]
         public void Can_change_orientation_toward_left_initial_orientation_is_W()
         {
             var rover = new Rover("5 5 1 2 W");
