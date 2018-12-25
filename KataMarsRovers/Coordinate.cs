@@ -2,15 +2,25 @@
 {
     public class Coordinate
     {
-        public string XPosition;
-
+        //5 5 1 2 W
         public Coordinate(string coordinateAsString)
         {
             var split = coordinateAsString.Split(" ");
-            this.XPosition = split[2];
-            this.YPosition = split[3];
+            this.XPosition = int.Parse(split[2]);
+            this.YPosition = int.Parse(split[3]);
         }
 
-        public string YPosition { get; set; }
+
+        public int XPosition { get; private set; }
+
+        public int YPosition { get; private set; }
+
+        public Coordinate Change(int moveX, int moveY)
+        {
+            this.XPosition += moveX;
+            this.YPosition += moveY;
+
+            return this;
+        }
     }
 }

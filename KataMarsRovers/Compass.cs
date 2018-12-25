@@ -5,7 +5,7 @@ namespace KataMarsRovers
 {
     public class Compass
     {
-        private Orientation _pointTo;
+        private Orientation _orientation;
         public Orientation North { get; }
         public Orientation West { get; }
         public Orientation South { get; }
@@ -24,7 +24,7 @@ namespace KataMarsRovers
 
         public Compass StartWith(string start)
         {
-            _pointTo = _map[start];
+            _orientation = _map[start];
             return this;
         }
 
@@ -35,15 +35,29 @@ namespace KataMarsRovers
                 string instruction = c.ToString();
                 if (instruction == "L")
                 {
-                    _pointTo = _pointTo.Left;
+                    _orientation = _orientation.Left;
                 }
                 else
                 {
-                    _pointTo = _pointTo.Right;
+                    _orientation = _orientation.Right;
                 }
             }
 
-            return _pointTo.Name;
+            return _orientation.Name;
+        }
+
+        public string Turns(char turningInstruction)
+        {
+            if (turningInstruction == 'L')
+            {
+                _orientation = _orientation.Left;
+            }
+            else
+            {
+                _orientation = _orientation.Right;
+            }
+
+            return _orientation.Name;
         }
 
         private static Orientation Link(Orientation start, params Orientation[] orientations)

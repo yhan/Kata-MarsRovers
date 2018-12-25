@@ -47,6 +47,16 @@ namespace KataMarsRovers.Tests
         }
 
         [Test]
+        public void Can_change_orientation_once_then_move_forward()
+        {
+            var rover = new Rover("5 5 1 2 N");
+            rover.Move("RM");
+
+            string positionAndOrientation = rover.GetPositionAndOrientation();
+            Check.That(positionAndOrientation).IsEqualTo("2 2 E");
+        }
+
+        [Test]
         public void Can_change_orientation_toward_left_initial_orientation_is_W()
         {
             var rover = new Rover("5 5 1 2 W");
