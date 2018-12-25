@@ -20,7 +20,7 @@ In order to control a rover, NASA sends a simple string of letters. The possible
     1. OUTPUT:
 The output for each rover should be its final co-ordinates and heading.
 
-__EXAMPLE:__
+## EXAMPLE:
 ### Test Input:
 
 5 5  
