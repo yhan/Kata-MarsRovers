@@ -22,12 +22,20 @@ namespace KataMarsRovers
         public void Move(string instructions)
         {
             foreach (var instruction in instructions.ToCharArray())
+            {
                 if (instruction == 'L' || instruction == 'R')
+                {
                     _orientation = _compass.Turns(instruction);
+                }
                 else if (instruction == 'M')
+                {
                     _coordinate = _coordinate.MoveOneStepOnDirectionOf(_orientation);
+                }
                 else
+                {
                     throw new ArgumentException($"Unknown instruction: {instruction}");
+                }
+            }
         }
 
 
